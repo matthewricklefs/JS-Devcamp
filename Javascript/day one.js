@@ -319,3 +319,4 @@ if (age >= 25) {
 if (age <= 10) {
   console.log('You can eat from the kid menu');
 }
+
