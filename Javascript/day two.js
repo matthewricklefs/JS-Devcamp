@@ -157,41 +157,71 @@
 
 //Create an Array Popper that Alternates Returning from Each Side of an Array in JavaScript //
 
-class ArrayPopper {
-  constructor(arr) {
-    this.arr = arr;
-    this.atBeginning = true;
+// class ArrayPopper {
+//   constructor(arr) {
+//     this.arr = arr;
+//     this.atBeginning = true;
+//   }
+
+//   togglePopper() {
+//     this.atBeginning = !this.atBeginning;
+//     return this.atBeginning ? this.arr.pop() : this.arr.shift();
+//   }
+// }
+
+// const ap = new ArrayPopper([1, 2, 3, 4, 5]);
+
+// ap.togglePopper(); //?
+// ap.togglePopper(); //?
+// ap.togglePopper(); //?
+// ap.togglePopper(); //?
+// ap.togglePopper(); //?
+// ap.togglePopper(); //?
+
+// // How Variable Scope Works in JavaScript ////
+
+// var userObj = {
+//   email: 'sample@example.com',
+//   fullName: 'Kristine Hudgens'
+// }
+
+// function dashboardGreeting() {
+//   var userObj = {
+//     email: 'sample2@example.com',
+//     fullName: 'Jordan Hudgens'
+//   }
+//   console.log("Hi there, ".concat(userObj.fullName));
+// }
+
+// dashboardGreeting();
+// console.log(userObj.fullName);
+
+// Differences Between Function Expressions and Function Declarations //
+
+var greeting = function () {
+ return "Hi there!";
+};
+
+var age = 4;
+
+if (age <= 10) {
+  var buildMenu = function () {
+    return "Kids' Menu";
+  };
+
+  function wrongMenuBuilder () {
+    return "Wrong Kids' Menu";
   }
 
-  togglePopper() {
-    this.atBeginning = !this.atBeginning;
-    return this.atBeginning ? this.arr.pop() : this.arr.shift();
-  }
+  console.log(buildMenu());
+  console.log(wrongMenuBuilder());
 }
 
-const ap = new ArrayPopper([1, 2, 3, 4, 5]);
+// How to Work with Function Arguments in JavaScript //
 
-ap.togglePopper(); //?
-ap.togglePopper(); //?
-ap.togglePopper(); //?
-ap.togglePopper(); //?
-ap.togglePopper(); //?
-ap.togglePopper(); //?
-
-// How Variable Scope Works in JavaScript ////
-
-var userObj = {
-  email: 'sample@example.com',
-  fullName: 'Kristine Hudgens'
+function fullName(firstName, lastName, language) {
+    var language = language || 'English';
+    return lastName.toUpperCase() + ", " + firstName.toUpperCase() + " - " + language;
 }
 
-function dashboardGreeting() {
-  var userObj = {
-    email: 'sample2@example.com',
-    fullName: 'Jordan Hudgens'
-  }
-  console.log("Hi there, ".concat(userObj.fullName));
-}
-
-dashboardGreeting();
-console.log(userObj.fullName);
+console.log(fullName('Jordan', 'Hudgens', 'Spanish'));
