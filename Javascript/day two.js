@@ -153,3 +153,45 @@
 // var storedTextTwo = hiThereTwo();
 
 // storedTextTwo; // "Hi there again"
+
+
+//Create an Array Popper that Alternates Returning from Each Side of an Array in JavaScript //
+
+class ArrayPopper {
+  constructor(arr) {
+    this.arr = arr;
+    this.atBeginning = true;
+  }
+
+  togglePopper() {
+    this.atBeginning = !this.atBeginning;
+    return this.atBeginning ? this.arr.pop() : this.arr.shift();
+  }
+}
+
+const ap = new ArrayPopper([1, 2, 3, 4, 5]);
+
+ap.togglePopper(); //?
+ap.togglePopper(); //?
+ap.togglePopper(); //?
+ap.togglePopper(); //?
+ap.togglePopper(); //?
+ap.togglePopper(); //?
+
+// How Variable Scope Works in JavaScript ////
+
+var userObj = {
+  email: 'sample@example.com',
+  fullName: 'Kristine Hudgens'
+}
+
+function dashboardGreeting() {
+  var userObj = {
+    email: 'sample2@example.com',
+    fullName: 'Jordan Hudgens'
+  }
+  console.log("Hi there, ".concat(userObj.fullName));
+}
+
+dashboardGreeting();
+console.log(userObj.fullName);
