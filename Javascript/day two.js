@@ -198,26 +198,26 @@
 
 // Differences Between Function Expressions and Function Declarations //
 
-var greeting = function () {
- return "Hi there!";
-};
+// var greeting = function () {
+//  return "Hi there!";
+// };
 
-var age = 4;
+// var age = 4;
 
-if (age <= 10) {
-  var buildMenu = function () {
-    return "Kids' Menu";
-  };
+// if (age <= 10) {
+//   var buildMenu = function () {
+//     return "Kids' Menu";
+//   };
 
-  function wrongMenuBuilder () {
-    return "Wrong Kids' Menu";
-  }
+//   function wrongMenuBuilder () {
+//     return "Wrong Kids' Menu";
+//   }
 
-  console.log(buildMenu());
-  console.log(wrongMenuBuilder());
-}
+//   console.log(buildMenu());
+//   console.log(wrongMenuBuilder());
+// }
 
-// How to Work with Function Arguments in JavaScript //
+// // How to Work with Function Arguments in JavaScript //
 
 function fullName(firstName, lastName, language) {
     var language = language || 'English';
@@ -225,3 +225,40 @@ function fullName(firstName, lastName, language) {
 }
 
 console.log(fullName('Jordan', 'Hudgens', 'Spanish'));
+
+// Function Arguments: Reference vs Value //
+
+var someUser = {
+    name: 'Jordan'
+}
+
+function nameFormatter (user) {
+    return user.name = 'Oops';
+}
+
+nameFormatter(someUser); // "Oops"
+
+someUser; // Object {name: "Oops"}
+
+var someName = 'Tiffany';
+
+function someOtherNameFormatter(name) {
+    return name = 'Oops';
+}
+
+someOtherNameFormatter(someName); // "Oops"
+
+someName; // "Tiffany"
+
+function nameFormatter (userName) {
+    return userName = 'Oops';
+}
+
+someUser.name; // "Oops"
+
+someUser.name = 'Kristine';
+
+nameFormatter(someUser.name); // "Oops"
+
+someUser.name; // "Kristine"
+
