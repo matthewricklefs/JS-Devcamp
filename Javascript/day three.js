@@ -77,18 +77,35 @@
 
 // Guide to Adding and Removing Array Elements in JavaScript//
 
+// var arr = ['Altuve', 'Bregman', 'Correa', 'Springer'];
+
+// arr.pop(); // "Springer"
+
+// arr; // ['Altuve', 'Bregman', 'Correa']
+
+// arr.push('Bagwell'); // 4
+
+// arr; // ['Altuve', 'Bregman', 'Correa', 'Bagwell']
+
+// arr.shift(); // ['Bregman', 'Correa', 'Bagwell']
+
+// arr.unshift('Kyle'); // 4
+
+// arr; // ['Kyle', 'Bregman', 'Correa', 'Bagwell']
+
+
+///How to Use the Splice Function in JavaScript to Remove Specific Array Elements///
+
 var arr = ['Altuve', 'Bregman', 'Correa', 'Springer'];
 
-arr.pop(); // "Springer"
+var foundElement = arr.indexOf('Correa');
 
-arr; // ['Altuve', 'Bregman', 'Correa']
+foundElement; // 2
 
-arr.push('Bagwell'); // 4
+arr.splice(foundElement, 1); // ["Correa"]
 
-arr; // ['Altuve', 'Bregman', 'Correa', 'Bagwell']
+arr; // ["Altuve", "Bregman", "Springer"]
 
-arr.shift(); // ['Bregman', 'Correa', 'Bagwell']
+arr.splice(1, 2); // ["Bregman", "Springer"]
 
-arr.unshift('Kyle'); // 4
-
-arr; // ['Kyle', 'Bregman', 'Correa', 'Bagwell']
+arr; // ["Altuve"]
