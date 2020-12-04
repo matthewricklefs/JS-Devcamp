@@ -44,26 +44,51 @@
 
 // How to Use the 'this' Keyword in JavaScript Programs
 
-var guide = {
-  title: 'Guide to Programming', //
-  content: 'Content goes here...',
-  visibleToUser: function (viewingUserRole) {
-    if (viewingUserRole === 'paid') {
-      return true;
-    }
-  },
-  renderContent: function(userRole) {
-    if (this.visibleToUser(userRole)) {
-      console.log(this.title + " - " + this.content);
-    } else {
-      this.content = '';
-      console.log(this.title + " - " + this.content);
-    }
-  }
-}
+// var guide = {
+//   title: 'Guide to Programming', //
+//   content: 'Content goes here...',
+//   visibleToUser: function (viewingUserRole) {
+//     if (viewingUserRole === 'paid') {
+//       return true;
+//     }
+//   },
+//   renderContent: function(userRole) {
+//     if (this.visibleToUser(userRole)) {
+//       console.log(this.title + " - " + this.content);
+//     } else {
+//       this.content = '';
+//       console.log(this.title + " - " + this.content);
+//     }
+//   }
+// }
 
-user = { role: 'paid' };
-guide.renderContent(user.role);
+// user = { role: 'paid' };
+// guide.renderContent(user.role);
 
 //// Section Introduction: Introduction to JavaScript Arrays//
+//// How to Create Arrays in JavaScript ////
 
+// var generatedArray = new Array(3); // [undefined, undefined, undefined]
+
+// var literalArray = [1, 2, 3];
+
+// var mixedArray = ['Hi', 1, ['a', 'b', 'c'], { name: 'Kristine' }];
+
+
+// Guide to Adding and Removing Array Elements in JavaScript//
+
+var arr = ['Altuve', 'Bregman', 'Correa', 'Springer'];
+
+arr.pop(); // "Springer"
+
+arr; // ['Altuve', 'Bregman', 'Correa']
+
+arr.push('Bagwell'); // 4
+
+arr; // ['Altuve', 'Bregman', 'Correa', 'Bagwell']
+
+arr.shift(); // ['Bregman', 'Correa', 'Bagwell']
+
+arr.unshift('Kyle'); // 4
+
+arr; // ['Kyle', 'Bregman', 'Correa', 'Bagwell']
