@@ -129,34 +129,63 @@
 
 //// Guide to the JavaScript Spread Operator ////
 
-// Combining Arrays
-let shoppingCart = [345, 375, 765, 123];
-let newItems = [98, 123];
+// // Combining Arrays
+// let shoppingCart = [345, 375, 765, 123];
+// let newItems = [98, 123];
 
-shoppingCart.push(...newItems);
-console.log(shoppingCart); // [345, 375, 765, 123, 98, 123]
+// shoppingCart.push(...newItems);
+// console.log(shoppingCart); // [345, 375, 765, 123, 98, 123]
 
-// Copying Arrays
-const shoppingCart = [345, 375, 765, 123];
-const updatedCart = [...shoppingCart];
-updatedCart.push(5);
-console.log(updatedCart);
-console.log(shoppingCart);
+// // Copying Arrays
+// const shoppingCart = [345, 375, 765, 123];
+// const updatedCart = [...shoppingCart];
+// updatedCart.push(5);
+// console.log(updatedCart);
+// console.log(shoppingCart);
 
-const orderTotals = [1, 5, 1, 10, 2, 3];
-console.log(Math.max(...orderTotals));
+// const orderTotals = [1, 5, 1, 10, 2, 3];
+// console.log(Math.max(...orderTotals));
 
-// [1, 5, 1, 10, 2, 3]
-// ...[1, 5, 1, 10, 2, 3]
-// 1, 5, 1, 10, 2, 3
+// // [1, 5, 1, 10, 2, 3]
+// // ...[1, 5, 1, 10, 2, 3]
+// // 1, 5, 1, 10, 2, 3
 
-const { starter, closer, ...relievers } = {
-  starter: 'Verlander',
-  closer: 'Giles',
-  relief_1: 'Morton',
-  relief_2: 'Gregerson'
-}
+// const { starter, closer, ...relievers } = {
+//   starter: 'Verlander',
+//   closer: 'Giles',
+//   relief_1: 'Morton',
+//   relief_2: 'Gregerson'
+// }
 
-console.log(starter);
-console.log(closer);
-console.log(relievers);
+// console.log(starter);
+// console.log(closer);
+// console.log(relievers);
+
+
+// Guide to JavaScript Bind Function // 
+
+const userOne = {
+  firstName: "Kristine",
+  lastName: "Hudgens"
+};
+
+const userTwo = {
+  firstName: "Tiffany",
+  lastName: "Hudgens"
+};
+
+// Function expression
+const fullName = function() {
+  return `${this.lastName}, ${this.firstName}`;
+};
+
+// Nope!
+// const fullName = () => {
+//   return `${this.lastName}, ${this.firstName}`;
+// };
+
+const kristine = fullName.bind(userOne);
+const tiffany = fullName.bind(userTwo);
+
+kristine();
+tiffany();
