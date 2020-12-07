@@ -85,14 +85,43 @@
 
 //// How to Implement Array Destructuring in JavaScript ////
 
-const apiList = [
-  'https://api.dailysmarty.com/posts',
-  'https://api.github.com/users/jordanhudgens/repos',
-  'https://api.github.com/users/jordanhudgens'
-]
+// const apiList = [
+//   'https://api.dailysmarty.com/posts',
+//   'https://api.github.com/users/jordanhudgens/repos',
+//   'https://api.github.com/users/jordanhudgens'
+// ]
 
-const [posts, repos, profile] = apiList;
+// const [posts, repos, profile] = apiList;
 
-console.log(posts);
-console.log(repos);
-console.log(profile);
+// console.log(posts);
+// console.log(repos);
+// console.log(profile);
+
+//How to Pass JavaScript Objects as Function Arguments by Leveraging Deconstruction//
+
+const user = {
+  name: 'Kristine',
+  email: 'kristine@devcamp.com'
+}
+
+const renderUser = ({ name, email }) => {
+  console.log(`${name}: ${email}`);
+}
+
+renderUser(user);
+
+// Guide to Adding Default Object Values to JavaScript Function Arguments //
+
+const blog = {
+  title: 'My great post',
+  summary: 'Summary of my post'
+}
+
+const openGraphMetadata = ({ title, summary = 'A DailySmarty Post' }) => {
+  console.log(`
+    og-title=${title}
+    og-description=${summary}
+  `);
+}
+
+openGraphMetadata(blog);
