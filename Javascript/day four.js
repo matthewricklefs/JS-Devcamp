@@ -79,4 +79,4 @@
 // fullName = (fName, lName) => { console.log(`${lName}, ${fName}`); }
 // fullName('Kristine', 'Hudgens');
 
-////  ////
+//// How to Get the Average from an Array in JavaScript ////
