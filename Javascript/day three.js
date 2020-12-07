@@ -136,35 +136,33 @@
 
 //How to Loop Through a JavaScript Object//
 
-// var student = {
-//   name: 'Kristine',
-//   age: 12,
-//   city: 'Scottsdale'
-// };
+var student = {
+  name: 'Kristine',
+  age: 12,
+  city: 'Scottsdale'
+};
 
-// for (var key in student) {
-//   console.log(key + " => " + student[key]);
-// }
+for (var key in student) {
+  console.log(key + " => " + student[key]);
+}
 
 // Guide to While and Do/While Loops in JavaScript //
 
-var players = [
-  'Altuve',
-  'Bregman',
-  'Correa',
-  'Springer'
-];
+// var players = [
+//   'Altuve',
+//   'Bregman',
+//   'Correa',
+//   'Springer'
+// ];
 
-var i = 0;
-while (i < players.length) {
-  console.log(players[i]);
-  i++;
-}
+// var i = 0;
+// while (i < players.length) {
+//   console.log(players[i]);
+//   i++;
+// }
 
-var i = 21;
-do {
-  console.log(players[i]);
-  i++;
-} while (i < players.length)
-
-//   //
+// var i = 21;
+// do {
+//   console.log(players[i]);
+//   i++;
+// } while (i < players.length)
