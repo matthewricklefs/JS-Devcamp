@@ -164,28 +164,28 @@
 
 // Guide to JavaScript Bind Function // 
 
-const userOne = {
-  firstName: "Kristine",
-  lastName: "Hudgens"
-};
+// const userOne = {
+//   firstName: "Kristine",
+//   lastName: "Hudgens"
+// };
 
-const userTwo = {
-  firstName: "Tiffany",
-  lastName: "Hudgens"
-};
+// const userTwo = {
+//   firstName: "Tiffany",
+//   lastName: "Hudgens"
+// };
 
-// Function expression
-const fullName = function() {
-  return `${this.lastName}, ${this.firstName}`;
-};
-
-// Nope!
-// const fullName = () => {
+// // Function expression
+// const fullName = function() {
 //   return `${this.lastName}, ${this.firstName}`;
 // };
 
-const kristine = fullName.bind(userOne);
-const tiffany = fullName.bind(userTwo);
+// // Nope!
+// // const fullName = () => {
+// //   return `${this.lastName}, ${this.firstName}`;
+// // };
 
-kristine();
-tiffany();
+// const kristine = fullName.bind(userOne);
+// const tiffany = fullName.bind(userTwo);
+
+// kristine();
+// tiffany();
