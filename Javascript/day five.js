@@ -102,14 +102,14 @@
 
 // JSON Parsing Guide for API Development //
 
-const json = '{"result":true, "count":42}';
-const obj = JSON.parse(json);
+// const json = '{"result":true, "count":42}';
+// const obj = JSON.parse(json);
 
-console.log(obj.count);
-// expected output: 42
+// console.log(obj.count);
+// // expected output: 42
 
-console.log(obj.result);
-// expected output: true
+// console.log(obj.result);
+// // expected output: true
 
 // Introduction to JavaScript Promises //
 let sleepyGreeting = new Promise((resolve, reject) => {
@@ -129,3 +129,23 @@ sleepyGreeting
   .catch(err => {
     console.error(err);
   });
+
+//How to Group Promises Together with Promise.all in JavaScript//
+
+const greeting = new Promise((resolve, reject) =>{
+  resolve('Hi there');
+  reject('Oops, bad greeting');
+});
+
+const updateAccount = new Promise((resolve, reject) => {
+  resolve('Updating last login...');
+  reject('Error updating account with login.');
+});
+
+const loginActivities = Promise.all([greeting, updateAccount]);
+
+loginActivities.then(res => {
+  res.forEach(activity => {
+    console.log(activity);
+  })
+})
