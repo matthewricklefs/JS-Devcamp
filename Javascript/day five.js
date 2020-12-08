@@ -112,40 +112,107 @@
 // // expected output: true
 
 // Introduction to JavaScript Promises //
-let sleepyGreeting = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('Hello....')
-  }, 2000);
+// let sleepyGreeting = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('Hello....')
+//   }, 2000);
 
-  setTimeout(() => {
-    reject(Error('Too sleepy...'))
-  }, 2000);
-});
+//   setTimeout(() => {
+//     reject(Error('Too sleepy...'))
+//   }, 2000);
+// });
 
-sleepyGreeting
-  .then(data => {
-    console.log(data);
-  })
-  .catch(err => {
-    console.error(err);
+// sleepyGreeting
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   });
+
+// //How to Group Promises Together with Promise.all in JavaScript//
+
+// const greeting = new Promise((resolve, reject) =>{
+//   resolve('Hi there');
+//   reject('Oops, bad greeting');
+// });
+
+// const updateAccount = new Promise((resolve, reject) => {
+//   resolve('Updating last login...');
+//   reject('Error updating account with login.');
+// });
+
+// const loginActivities = Promise.all([greeting, updateAccount]);
+
+// loginActivities.then(res => {
+//   res.forEach(activity => {
+//     console.log(activity);
+//   })
+// })
+
+// Introduction to Async and Await in JavaScript //
+
+//Example of Callback////
+user logins system
+
+
+verify credentials
+  redirect to dashboard page
+    update the DB account
+      API calls to bring user data..
+        ......(long time)
+
+
+const login = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('User logged in...');
+    }, 2000);
   });
+}
 
-//How to Group Promises Together with Promise.all in JavaScript//
+const updateAccount = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Updating last login...');
+    }, 2000);
+  });
+}
 
-const greeting = new Promise((resolve, reject) =>{
-  resolve('Hi there');
-  reject('Oops, bad greeting');
-});
+async function loginActivities() {
+  const returnedLogin = await login();
+  console.log(returnedLogin);
 
-const updateAccount = new Promise((resolve, reject) => {
-  resolve('Updating last login...');
-  reject('Error updating account with login.');
-});
+  const returnedUpdateAccount = await updateAccount();
+  console.log(returnedUpdateAccount);
+}
 
-const loginActivities = Promise.all([greeting, updateAccount]);
+loginActivities();
 
-loginActivities.then(res => {
-  res.forEach(activity => {
-    console.log(activity);
-  })
-})
+// Combining Async / Await with Closures to Ensure All Processes Have Run //
+
+const login = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('User logged in...');
+    }, 4000);
+  });
+}
+
+const updateAccount = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Updating last login...');
+    }, 2000);
+  });
+}
+
+async function loginActivities(login, updateAccount) {
+  const returnedLogin = await login;
+  console.log(returnedLogin);
+
+  const returnedUpdateAccount = await updateAccount;
+  console.log(returnedUpdateAccount);
+}
+
+loginActivities(login(), updateAccount());
