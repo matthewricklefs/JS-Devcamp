@@ -153,66 +153,104 @@
 // Introduction to Async and Await in JavaScript //
 
 //Example of Callback////
-user logins system
+// user logins system
 
 
-verify credentials
-  redirect to dashboard page
-    update the DB account
-      API calls to bring user data..
-        ......(long time)
+// verify credentials
+//   redirect to dashboard page
+//     update the DB account
+//       API calls to bring user data..
+//         ......(long time)
 
 
-const login = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('User logged in...');
-    }, 2000);
-  });
+// const login = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve('User logged in...');
+//     }, 2000);
+//   });
+// }
+
+// const updateAccount = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve('Updating last login...');
+//     }, 2000);
+//   });
+// }
+
+// async function loginActivities() {
+//   const returnedLogin = await login();
+//   console.log(returnedLogin);
+
+//   const returnedUpdateAccount = await updateAccount();
+//   console.log(returnedUpdateAccount);
+// }
+
+// loginActivities();
+
+// // Combining Async / Await with Closures to Ensure All Processes Have Run //
+
+// const login = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve('User logged in...');
+//     }, 4000);
+//   });
+// }
+
+// const updateAccount = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve('Updating last login...');
+//     }, 2000);
+//   });
+// }
+
+// async function loginActivities(login, updateAccount) {
+//   const returnedLogin = await login;
+//   console.log(returnedLogin);
+
+//   const returnedUpdateAccount = await updateAccount;
+//   console.log(returnedUpdateAccount);
+// }
+
+// loginActivities(login(), updateAccount());
+
+// Using Async / Await for Communicating with Outside APIs in JavaScript //
+
+async function queryApis() {
+  const postsPromise = fetch('https://api.dailysmarty.com/posts');
+  const posts = await postsPromise.then(res => res.json());
+  console.log(posts);
+
+  const reposPromise = fetch('https://api.github.com/users/jordanhudgens/repos');
+  const repos = await reposPromise.then(res => res.json());
+  console.log(repos);
 }
 
-const updateAccount = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('Updating last login...');
-    }, 2000);
-  });
+queryApis();
+
+// Implementing Error Handling In a JavaScript Async / Await Function //
+
+async function queryApis() {
+  try {
+    const postsPromise = fetch('http://api.dailysmarty.com/posts');
+    const posts = await postsPromise.then(res => res.json());
+    console.log(posts);
+  } catch(err) {
+    console.log(err);
+    console.log('There was an error with the DailySmarty API');
+  }
+
+  try {
+    const reposPromise = fetch('https://api.github.com/users/jordanhudgens/repos');
+    const repos = await reposPromise.then(res => res.json());
+    console.log(repos);
+  } catch(err) {
+    console.log(err);
+    console.log('There was an error with the GitHub API');
+  }
 }
 
-async function loginActivities() {
-  const returnedLogin = await login();
-  console.log(returnedLogin);
-
-  const returnedUpdateAccount = await updateAccount();
-  console.log(returnedUpdateAccount);
-}
-
-loginActivities();
-
-// Combining Async / Await with Closures to Ensure All Processes Have Run //
-
-const login = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('User logged in...');
-    }, 4000);
-  });
-}
-
-const updateAccount = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('Updating last login...');
-    }, 2000);
-  });
-}
-
-async function loginActivities(login, updateAccount) {
-  const returnedLogin = await login;
-  console.log(returnedLogin);
-
-  const returnedUpdateAccount = await updateAccount;
-  console.log(returnedUpdateAccount);
-}
-
-loginActivities(login(), updateAccount());
+queryApis();
