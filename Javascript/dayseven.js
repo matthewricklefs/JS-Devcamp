@@ -22,28 +22,29 @@
 // console.log("2" * 5)
 
 // Loop Method //
-const manuelExponentWhile = (base, exp) => {
-  let counter = exp - 1
-  let total = base
+// const manuelExponentWhile = (base, exp) => {
+//   let counter = exp - 1
+//   let total = base
 
-  while(counter > 0) {
-    total *= base
-    counter--
-  }
+//   while(counter > 0) {
+//     total *= base
+//     counter--
+//   }
 
-  return total
-}
+//   return total
+// }
 
-console.log(manuelExponentWhile(2, 3))
+// console.log(manuelExponentWhile(2, 3))
 
-//For Loop //
+// //For Loop //
 
-const manualExponentFor = (base, exp) => {
-  let total = base
+// const manualExponentFor = (base, exp) => {
+//   let total = base
 
-  for (let i = exp - 1; i > 0; i--) {
-    total *= base
-  }
+//   for (let i = exp - 1; i > 0; i--) {
+//     total *= base
+//   }
 
-  return total
-}
+//   return total
+// }
+
