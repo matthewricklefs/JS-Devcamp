@@ -220,61 +220,127 @@
 
 // Overview of JS Query Selectors //
 
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+
+//   <style>
+//     .hideElement {
+//       visibility: hidden;
+//     }
+
+//     .showElement {
+//       display: block;
+//     }
+//   </style>
+// </head>
+// <body>
+//   <div class="widget showElement">
+//     <div class="mainHeading">
+//       <h1>Hi there</h1>
+//     </div>
+
+//     <div class="subHeading">
+//       My Amazing subheading...
+//     </div>
+
+//   </div>
+//   <button onclick="contentToggle()">Toggle Content</button>
+// </body>
+// <script>
+//   // const mainHeading = document.querySelector('.mainHeading');
+//   // const headings = document.querySelectorAll('div');
+//   const widget = document.querySelector('.widget');
+
+//   function contentToggle() {
+//     if (widget.classList.contains('showElement')) {
+//       widget.classList.remove('showElement');
+//       widget.classList.add('hideElement');
+//     } else {
+//       widget.classList.remove('hideElement');
+//       widget.classList.add('showElement');
+//     }
+//   }
+
+//   // function contentToggle() {
+//   //   console.log(headings);
+//   //   headings.forEach((heading) => {
+//   //     if (heading.classList.contains('showElement')) {
+//   //       heading.classList.remove('showElement');
+//   //       heading.classList.add('hideElement');
+//   //     } else {
+//   //       heading.classList.remove('hideElement');
+//   //       heading.classList.add('showElement');
+//   //     }
+//   //   });
+//   // }
+// </script>
+// </html>
+
+// Guide to JavaScript Event Listeners //
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='UTF-8'>
   <title></title>
-
-  <style>
-    .hideElement {
-      visibility: hidden;
-    }
-
-    .showElement {
-      display: block;
-    }
-  </style>
 </head>
-<body>
-  <div class="widget showElement">
-    <div class="mainHeading">
-      <h1>Hi there</h1>
-    </div>
 
-    <div class="subHeading">
-      My Amazing subheading...
-    </div>
-
-  </div>
-  <button onclick="contentToggle()">Toggle Content</button>
-</body>
-<script>
-  // const mainHeading = document.querySelector('.mainHeading');
-  // const headings = document.querySelectorAll('div');
-  const widget = document.querySelector('.widget');
-
-  function contentToggle() {
-    if (widget.classList.contains('showElement')) {
-      widget.classList.remove('showElement');
-      widget.classList.add('hideElement');
-    } else {
-      widget.classList.remove('hideElement');
-      widget.classList.add('showElement');
-    }
+<style>
+  img {
+    width: 400px;
   }
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .show-img-overlay {
+    position: relative;
+    bottom: 60px;
+    font-size: 21px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .hide-img-overlay {
+    position: relative;
+    bottom: 60px;
+    font-size: 21px;
+    color: transparent;
+  }
+</style>
+<body>
 
-  // function contentToggle() {
-  //   console.log(headings);
-  //   headings.forEach((heading) => {
-  //     if (heading.classList.contains('showElement')) {
-  //       heading.classList.remove('showElement');
-  //       heading.classList.add('hideElement');
-  //     } else {
-  //       heading.classList.remove('hideElement');
-  //       heading.classList.add('showElement');
-  //     }
-  //   });
-  // }
+  <div class="container">
+    <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
+    <div class="hide-img-overlay">Image Description</div>
+  </div>
+
+  <div class="container">
+    <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/another-laptop.jpg" class="site-img" alt="Laptop">
+    <div class="hide-img-overlay">Some Other Image Description</div>
+  </div>
+
+</body>
+
+<script>
+  const img = document.getElementsByClassName('site-img')[0];
+  img.addEventListener('click', (e) => {
+    debugger;
+  });
+  const imgs = document.querySelectorAll('.site-img');
+  imgs.forEach(img => {
+    img.addEventListener('mouseover', (event) => {
+      const captionElement = event.target.parentElement.children[1];
+      captionElement.className = 'show-img-overlay';
+    });
+  });
+  imgs.forEach(img => {
+    img.addEventListener('mouseout', (event) => {
+      const captionElement = event.target.parentElement.children[1];
+      captionElement.className = 'hide-img-overlay';
+    });
+  });
 </script>
 </html>
