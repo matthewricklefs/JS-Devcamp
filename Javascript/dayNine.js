@@ -131,38 +131,90 @@
 
 // Overview of the DOM //
 
-const user = {
-  name: 'Kristine',
-  email: 'kristine@devcamp.com',
-  favorites: [
-    'Chipotle',
-    'Chik fil a'
-  ]
-}
+// const user = {
+//   name: 'Kristine',
+//   email: 'kristine@devcamp.com',
+//   favorites: [
+//     'Chipotle',
+//     'Chik fil a'
+//   ]
+// }
 
-user.email
-user.favorites[1]
+// user.email
+// user.favorites[1]
 
-document
+// document
 
-document.location.href
+// document.location.href
 
-// On dailysmarty
-document.location.protocol
+// // On dailysmarty
+// document.location.protocol
 
-// On wsj
-document.location.protocol
+// // On wsj
+// document.location.protocol
 
-document.body.parentElement
+// document.body.parentElement
 
-document.getElementsByClassName('topics')
+// document.getElementsByClassName('topics')
 
-document.getElementsByClassName('topics')[2]
+// document.getElementsByClassName('topics')[2]
 
-document.getElementsByClassName('topics')[2].children
+// document.getElementsByClassName('topics')[2].children
 
-document.getElementsByClassName('topics')[2].children.length
+// document.getElementsByClassName('topics')[2].children.length
 
-document.getElementsByClassName('topics')[2].children[0].text
+// document.getElementsByClassName('topics')[2].children[0].text
 
+
+// How to Add and Remove Classes in Vanilla JS //
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<style>
+  .activeHeading {
+    color: firebrick;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .nonActiveHeading {
+    color: cornflowerblue;
+    font-size: 4em;
+    cursor: pointer;
+  }
+</style>
+<body>
+
+  <div id="mainHeading" class="activeHeading">
+    Hi there
+  </div>
+
+</body>
+
+<script>
+  const heading = document.getElementById('mainHeading');
+  heading.onclick = () => {
+    if (heading.classList.contains('activeHeading')) {
+      heading.classList.remove('activeHeading');
+      heading.classList.add('nonActiveHeading');
+    } else {
+      heading.classList.add('activeHeading');
+      heading.classList.remove('nonActiveHeading');
+    };
+  }
+
+
+  heading.onclick = () => {
+    if (heading.classList.contains('activeHeading')) {
+      heading.className = 'nonActiveHeading';
+    } else {
+      heading.className = 'activeHeading';
+    };
+  }
+</script>
+</html>
 
