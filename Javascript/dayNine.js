@@ -444,41 +444,70 @@
 
 // How to Build a Character Countdown Function in JavaScript //
 
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+// </head>
+// <body>
+//   <input type="text" class="msgInput">
+
+//   <div>
+//     Characters left <span class="msgCounter"></span>
+//   </div>
+// </body>
+
+// <script>
+//   const getCurrentContentLength = (content, max) => {
+//     const maxLength = max;
+//     if (content.length > maxLength) {
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   }
+//   const msgInput = document.querySelector('.msgInput');
+//   const counter = document.querySelector('.msgCounter');
+//   const max = 20;
+//   // Nope
+//   // msgInput.addEventListener('keyup', (e) => {
+//   //   console.log(e);
+//   // });
+//   msgInput.onkeyup = function() {
+//     counter.innerHTML = max - this.value.length;
+//     if(!getCurrentContentLength(this.value, (max - 1))) {
+//       msgInput.disabled = true;
+//     }
+//   }
+// </script>
+// </html>
+
+// How to Add Hot Keys to a Web Application in Vanilla JavaScript //
+
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
   <meta charset='UTF-8'>
   <title></title>
 </head>
-<body>
-  <input type="text" class="msgInput">
 
-  <div>
-    Characters left <span class="msgCounter"></span>
-  </div>
+<body>
+
+  <input type="text" id="searchBar">
+
 </body>
 
 <script>
-  const getCurrentContentLength = (content, max) => {
-    const maxLength = max;
-    if (content.length > maxLength) {
-      return false;
-    } else {
-      return true;
+  const hotKeys = (e) => {
+    let windowEvent = window.event ? event : e;
+    if (windowEvent.keyCode == 66 && windowEvent.ctrlKey) {
+      const searchBar = document.querySelector('#searchBar');
+      searchBar.focus();
     }
   }
-  const msgInput = document.querySelector('.msgInput');
-  const counter = document.querySelector('.msgCounter');
-  const max = 20;
-  // Nope
-  // msgInput.addEventListener('keyup', (e) => {
-  //   console.log(e);
-  // });
-  msgInput.onkeyup = function() {
-    counter.innerHTML = max - this.value.length;
-    if(!getCurrentContentLength(this.value, (max - 1))) {
-      msgInput.disabled = true;
-    }
-  }
+  document.onkeydown = hotKeys;
 </script>
+
 </html>
