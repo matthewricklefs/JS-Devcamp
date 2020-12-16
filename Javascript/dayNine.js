@@ -281,6 +281,73 @@
 
 // Guide to JavaScript Event Listeners //
 
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+// </head>
+
+// <style>
+//   img {
+//     width: 400px;
+//   }
+//   .container {
+//     position: relative;
+//     text-align: center;
+//     color: white;
+//   }
+//   .show-img-overlay {
+//     position: relative;
+//     bottom: 60px;
+//     font-size: 21px;
+//     font-family: Arial, Helvetica, sans-serif;
+//   }
+//   .hide-img-overlay {
+//     position: relative;
+//     bottom: 60px;
+//     font-size: 21px;
+//     color: transparent;
+//   }
+// </style>
+// <body>
+
+//   <div class="container">
+//     <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
+//     <div class="hide-img-overlay">Image Description</div>
+//   </div>
+
+//   <div class="container">
+//     <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/another-laptop.jpg" class="site-img" alt="Laptop">
+//     <div class="hide-img-overlay">Some Other Image Description</div>
+//   </div>
+
+// </body>
+
+// <script>
+//   const img = document.getElementsByClassName('site-img')[0];
+//   img.addEventListener('click', (e) => {
+//     debugger;
+//   });
+//   const imgs = document.querySelectorAll('.site-img');
+//   imgs.forEach(img => {
+//     img.addEventListener('mouseover', (event) => {
+//       const captionElement = event.target.parentElement.children[1];
+//       captionElement.className = 'show-img-overlay';
+//     });
+//   });
+//   imgs.forEach(img => {
+//     img.addEventListener('mouseout', (event) => {
+//       const captionElement = event.target.parentElement.children[1];
+//       captionElement.className = 'hide-img-overlay';
+//     });
+//   });
+// </script>
+// </html>
+
+
+// Inline onclick vs addEventListener // 
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -288,59 +355,20 @@
   <title></title>
 </head>
 
-<style>
-  img {
-    width: 400px;
-  }
-  .container {
-    position: relative;
-    text-align: center;
-    color: white;
-  }
-  .show-img-overlay {
-    position: relative;
-    bottom: 60px;
-    font-size: 21px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .hide-img-overlay {
-    position: relative;
-    bottom: 60px;
-    font-size: 21px;
-    color: transparent;
-  }
-</style>
 <body>
-
-  <div class="container">
-    <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
-    <div class="hide-img-overlay">Image Description</div>
-  </div>
-
-  <div class="container">
-    <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/another-laptop.jpg" class="site-img" alt="Laptop">
-    <div class="hide-img-overlay">Some Other Image Description</div>
-  </div>
-
+  <div id="dateComponent"></div>
+  <button id="dateBtn">Click for Date</button>
+  <!-- <button onclick="renderDate()">Click for Date</button> -->
 </body>
 
 <script>
-  const img = document.getElementsByClassName('site-img')[0];
-  img.addEventListener('click', (e) => {
-    debugger;
-  });
-  const imgs = document.querySelectorAll('.site-img');
-  imgs.forEach(img => {
-    img.addEventListener('mouseover', (event) => {
-      const captionElement = event.target.parentElement.children[1];
-      captionElement.className = 'show-img-overlay';
-    });
-  });
-  imgs.forEach(img => {
-    img.addEventListener('mouseout', (event) => {
-      const captionElement = event.target.parentElement.children[1];
-      captionElement.className = 'hide-img-overlay';
-    });
+  const dateElement = document.getElementById('dateComponent');
+  const dateBtn = document.getElementById('dateBtn');
+  // renderDate = () => {
+  //   dateElement.innerHTML = Date();
+  // }
+  dateBtn.addEventListener('click', (event) => {
+    dateElement.innerHTML = Date();
   });
 </script>
 </html>
