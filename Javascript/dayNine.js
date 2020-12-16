@@ -168,53 +168,113 @@
 
 // How to Add and Remove Classes in Vanilla JS //
 
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+// </head>
+
+// <style>
+//   .activeHeading {
+//     color: firebrick;
+//     font-size: 2em;
+//     cursor: pointer;
+//   }
+//   .nonActiveHeading {
+//     color: cornflowerblue;
+//     font-size: 4em;
+//     cursor: pointer;
+//   }
+// </style>
+// <body>
+
+//   <div id="mainHeading" class="activeHeading">
+//     Hi there
+//   </div>
+
+// </body>
+
+// <script>
+//   const heading = document.getElementById('mainHeading');
+//   heading.onclick = () => {
+//     if (heading.classList.contains('activeHeading')) {
+//       heading.classList.remove('activeHeading');
+//       heading.classList.add('nonActiveHeading');
+//     } else {
+//       heading.classList.add('activeHeading');
+//       heading.classList.remove('nonActiveHeading');
+//     };
+//   }
+
+
+//   heading.onclick = () => {
+//     if (heading.classList.contains('activeHeading')) {
+//       heading.className = 'nonActiveHeading';
+//     } else {
+//       heading.className = 'activeHeading';
+//     };
+//   }
+// </script>
+// </html>
+
+// Overview of JS Query Selectors //
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='UTF-8'>
   <title></title>
+
+  <style>
+    .hideElement {
+      visibility: hidden;
+    }
+
+    .showElement {
+      display: block;
+    }
+  </style>
 </head>
-
-<style>
-  .activeHeading {
-    color: firebrick;
-    font-size: 2em;
-    cursor: pointer;
-  }
-  .nonActiveHeading {
-    color: cornflowerblue;
-    font-size: 4em;
-    cursor: pointer;
-  }
-</style>
 <body>
+  <div class="widget showElement">
+    <div class="mainHeading">
+      <h1>Hi there</h1>
+    </div>
 
-  <div id="mainHeading" class="activeHeading">
-    Hi there
+    <div class="subHeading">
+      My Amazing subheading...
+    </div>
+
   </div>
-
+  <button onclick="contentToggle()">Toggle Content</button>
 </body>
-
 <script>
-  const heading = document.getElementById('mainHeading');
-  heading.onclick = () => {
-    if (heading.classList.contains('activeHeading')) {
-      heading.classList.remove('activeHeading');
-      heading.classList.add('nonActiveHeading');
+  // const mainHeading = document.querySelector('.mainHeading');
+  // const headings = document.querySelectorAll('div');
+  const widget = document.querySelector('.widget');
+
+  function contentToggle() {
+    if (widget.classList.contains('showElement')) {
+      widget.classList.remove('showElement');
+      widget.classList.add('hideElement');
     } else {
-      heading.classList.add('activeHeading');
-      heading.classList.remove('nonActiveHeading');
-    };
+      widget.classList.remove('hideElement');
+      widget.classList.add('showElement');
+    }
   }
 
-
-  heading.onclick = () => {
-    if (heading.classList.contains('activeHeading')) {
-      heading.className = 'nonActiveHeading';
-    } else {
-      heading.className = 'activeHeading';
-    };
-  }
+  // function contentToggle() {
+  //   console.log(headings);
+  //   headings.forEach((heading) => {
+  //     if (heading.classList.contains('showElement')) {
+  //       heading.classList.remove('showElement');
+  //       heading.classList.add('hideElement');
+  //     } else {
+  //       heading.classList.remove('hideElement');
+  //       heading.classList.add('showElement');
+  //     }
+  //   });
+  // }
 </script>
 </html>
-
