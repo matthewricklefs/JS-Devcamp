@@ -375,36 +375,69 @@
 
 // How to Add and Remove CSS Styles in Vanilla JavaScript //
 
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+
+//   <style>
+//     img {
+//       width: 400px;
+//     }
+//     .site-img {
+//       border: 0px 40px 0px 0px solid transparent;
+//     }
+//   </style>
+// </head>
+// <body>
+//   <div class='container'>
+//     <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
+//   </div>
+// </body>
+
+// <script>
+//   const laptop = document.querySelector('.site-img');
+
+//   laptop.addEventListener('mouseover', (e) => {
+//     e.target.style.borderRight = '40px solid red';
+//   });
+
+//   laptop.addEventListener('mouseout', (e) => {
+//     e.target.style.borderRight = '40px solid transparent';
+//   });
+// </script>
+// </html>
+
+// How to Use JavaScript's Toggle Function //
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='UTF-8'>
   <title></title>
-
-  <style>
-    img {
-      width: 400px;
-    }
-    .site-img {
-      border: 0px 40px 0px 0px solid transparent;
-    }
-  </style>
 </head>
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
 <body>
-  <div class='container'>
-    <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
+
+  <button id="toggleBtn">Toggle Me</button>
+
+  <div id="mainHeading" class="hidden">
+    Hi there
   </div>
+
 </body>
 
 <script>
-  const laptop = document.querySelector('.site-img');
-
-  laptop.addEventListener('mouseover', (e) => {
-    e.target.style.borderRight = '40px solid red';
-  });
-
-  laptop.addEventListener('mouseout', (e) => {
-    e.target.style.borderRight = '40px solid transparent';
+  const heading = document.getElementById('mainHeading');
+  const btn = document.getElementById('toggleBtn');
+  btn.addEventListener('click', (e) => {
+    heading.classList.toggle('hidden');
   });
 </script>
 </html>
