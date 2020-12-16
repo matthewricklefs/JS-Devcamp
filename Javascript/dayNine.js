@@ -110,22 +110,59 @@
 //First Solution//
 
 //define function that takes in two arguments
-const prettyPrice = (grossPrice, extension) => {
-  // return parseInt
-  return parseInt(grossPrice) + extension
+// const prettyPrice = (grossPrice, extension) => {
+//   // return parseInt
+//   return parseInt(grossPrice) + extension
 
+// }
+// console.log(prettyPrice(2.25, .90))
+
+// //Second Solution//
+
+// const prettyPrice = (grossPrice, extension) => {
+//   if (Number.isInteger(extension)) {
+//     extension = extension * 0.01;
+//   }
+//   return Math.floor(grossPrice) + extension;
+// };
+
+// prettyPrice(2.2, 0.95); //?
+// prettyPrice(2.2, 95); //?
+
+// Overview of the DOM //
+
+const user = {
+  name: 'Kristine',
+  email: 'kristine@devcamp.com',
+  favorites: [
+    'Chipotle',
+    'Chik fil a'
+  ]
 }
-console.log(prettyPrice(2.25, .90))
 
-//Second Solution//
+user.email
+user.favorites[1]
 
-const prettyPrice = (grossPrice, extension) => {
-  if (Number.isInteger(extension)) {
-    extension = extension * 0.01;
-  }
-  return Math.floor(grossPrice) + extension;
-};
+document
 
-prettyPrice(2.2, 0.95); //?
-prettyPrice(2.2, 95); //?
+document.location.href
+
+// On dailysmarty
+document.location.protocol
+
+// On wsj
+document.location.protocol
+
+document.body.parentElement
+
+document.getElementsByClassName('topics')
+
+document.getElementsByClassName('topics')[2]
+
+document.getElementsByClassName('topics')[2].children
+
+document.getElementsByClassName('topics')[2].children.length
+
+document.getElementsByClassName('topics')[2].children[0].text
+
 
