@@ -411,33 +411,74 @@
 
 // How to Use JavaScript's Toggle Function //
 
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+// </head>
+
+// <style>
+//   .hidden {
+//     display: none;
+//   }
+// </style>
+// <body>
+
+//   <button id="toggleBtn">Toggle Me</button>
+
+//   <div id="mainHeading" class="hidden">
+//     Hi there
+//   </div>
+
+// </body>
+
+// <script>
+//   const heading = document.getElementById('mainHeading');
+//   const btn = document.getElementById('toggleBtn');
+//   btn.addEventListener('click', (e) => {
+//     heading.classList.toggle('hidden');
+//   });
+// </script>
+// </html>
+
+// How to Build a Character Countdown Function in JavaScript //
+
 <!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='UTF-8'>
   <title></title>
 </head>
-
-<style>
-  .hidden {
-    display: none;
-  }
-</style>
 <body>
+  <input type="text" class="msgInput">
 
-  <button id="toggleBtn">Toggle Me</button>
-
-  <div id="mainHeading" class="hidden">
-    Hi there
+  <div>
+    Characters left <span class="msgCounter"></span>
   </div>
-
 </body>
 
 <script>
-  const heading = document.getElementById('mainHeading');
-  const btn = document.getElementById('toggleBtn');
-  btn.addEventListener('click', (e) => {
-    heading.classList.toggle('hidden');
-  });
+  const getCurrentContentLength = (content, max) => {
+    const maxLength = max;
+    if (content.length > maxLength) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  const msgInput = document.querySelector('.msgInput');
+  const counter = document.querySelector('.msgCounter');
+  const max = 20;
+  // Nope
+  // msgInput.addEventListener('keyup', (e) => {
+  //   console.log(e);
+  // });
+  msgInput.onkeyup = function() {
+    counter.innerHTML = max - this.value.length;
+    if(!getCurrentContentLength(this.value, (max - 1))) {
+      msgInput.disabled = true;
+    }
+  }
 </script>
 </html>
