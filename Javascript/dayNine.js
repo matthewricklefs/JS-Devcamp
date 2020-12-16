@@ -107,10 +107,25 @@
 
 // Build a Pretty Price Method in JavaScript //
 
+//First Solution//
+
 //define function that takes in two arguments
 const prettyPrice = (grossPrice, extension) => {
   // return parseInt
-  return parseInt(grossPrice)+ extension
+  return parseInt(grossPrice) + extension
 
 }
 console.log(prettyPrice(2.25, .90))
+
+//Second Solution//
+
+const prettyPrice = (grossPrice, extension) => {
+  if (Number.isInteger(extension)) {
+    extension = extension * 0.01;
+  }
+  return Math.floor(grossPrice) + extension;
+};
+
+prettyPrice(2.2, 0.95); //?
+prettyPrice(2.2, 95); //?
+
